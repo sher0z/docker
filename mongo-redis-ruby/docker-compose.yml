@@ -1,0 +1,23 @@
+version: '3'
+services:
+    app:
+        image: ruby:2.4
+        build: ./ruby/
+        environment:
+            RACK_ENV: development        
+    mongodb:
+        image: mongodb-org:3.4
+        build: ./mongodb/
+        networks:
+            - database
+    redis:
+        image: redis:3.2
+        build: ./redis/
+        command: redis-server
+        ports:
+            - '6379:6379'
+        networks:
+            - database
+
+networks:
+    database:
