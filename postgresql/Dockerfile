@@ -4,7 +4,7 @@ MAINTAINER Sheroz Khaydarov "http://sheroz.com"
 RUN yum -y update && yum -y --nogpgcheck install epel-release && yum clean all
 RUN yum install -y gcc make && yum clean all 
 
-ENV POSTGRESQL_VERSION=10rc1 \
+ENV	POSTGRESQL_VERSION=10rc1 \
 	POSTGRESQL_DOWNLOAD_SHA256=4fb649cf2c01f7e3a653023cd218bb0ce3f11a05eaa111729cbc370f7b60ab28 \
 	POSTGRESQL_DOWNLOAD_MIRROR=https://ftp.postgresql.org/pub/source \
 	POSTGRESQL_HOME=/opt/postgresql
