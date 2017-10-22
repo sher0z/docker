@@ -1,0 +1,21 @@
+version: '3'
+services:
+    postgres:
+        build: .././postgres/
+        ports:
+            - "5432:5432" 
+        networks:
+            - postgres           
+    pgadmin:
+        image: dpage/pgadmin4
+        ports:
+            - "80:80" 
+        links:
+            - postgres:postgres    
+        networks:
+            - postgres            
+        depends_on:
+            - postgres
+networks:
+  postgres:
+    driver: bridge
