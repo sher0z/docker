@@ -30,6 +30,17 @@ groupadd -r postgres && \
 useradd --no-log-init -r -g postgres postgres && \
 mkdir -p $POSTGRES_HOME/$POSTGRES_VERSION/data && \
 chown postgres $POSTGRES_HOME/$POSTGRES_VERSION/data
+
+# RUN systemctl status firewalld
+
+# open docker network interface on firewalld
+# RUN firewall-cmd --permanent --zone=trusted --change-interface=docker0
+# or disable firewalld
+
+# RUN systemctl stop firewalld && \
+# systemctl disable firewalld && \
+# systemctl mask firewalld
+
 USER postgres
 
 # allow remote connections
