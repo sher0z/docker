@@ -45,6 +45,9 @@ EXPOSE 5432
 CMD ["/opt/postgres/10.0/bin/postgres", "-D", "/opt/postgres/10.0/data", "-c", "config_file=/opt/postgres/10.0/data/postgresql.conf"]
 
 # docker build -t postgres:10 .
-# docker run -p 5432:5432 -d postgres:10
+# docker run -p 5432:5432 --name postgres-10 -d postgres:10
 # docker pull dpage/pgadmin4
-# docker run -p 80:80 -d dpage/pgadmin4
+# docker run -p 80:80 --name pgadmin --link postgres-10:postgres-10 -d dpage/pgadmin4
+
+# PGADMIN_DEFAULT_EMAIL: container@pgadmin.org
+# PGADMIN_DEFAULT_PASSWORD: Conta1ner
